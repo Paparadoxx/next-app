@@ -1,8 +1,9 @@
 import React from "react";
 import { Button, Htag, P, Rating, Tag } from "../components";
+import { withLayout } from "../layout/Layout";
 
 
-export default function Home(): JSX.Element {
+function Home(): JSX.Element {
   
   return (
     <>
@@ -19,4 +20,7 @@ export default function Home(): JSX.Element {
       <Rating rating={2} isEditable/>
     </>
   );
-}
+};
+
+export default withLayout(Home);
+
