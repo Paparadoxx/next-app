@@ -3,10 +3,10 @@
 
   color: var(--black);
   border: none;
+  border-radius: 5px;
   outline-color: var(--primary);
   background: var(--white);
   box-shadow: 0 4px 4px rgb(0 0 0 5%);
-  border-radius: 5px;
 
   font-family: var(--font-family);
   font-size: 16px;
