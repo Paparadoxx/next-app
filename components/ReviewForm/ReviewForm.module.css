@@ -1,0 +1,68 @@
+.reviewForm {
+  display: grid;
+  grid-template-columns: [start] auto 1fr auto [end];
+  gap: 20px 30px;
+  align-items: center;
+
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.inputTitle {
+  justify-self: start;
+}
+
+.rate {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 20px;
+}
+
+.textarea, .submit {
+  grid-column: start / end;
+}
+
+.info {
+  margin-left: 15px;
+}
+
+.success {
+  position: relative;
+  background: var(--green-light);
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.successTitle {
+  font-weight: bold;
+  margin-bottom: 10px;
+
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1150px){
+  .reviewForm {
+    grid-template-columns: [start] auto auto [end];
+  }
+
+  .inputTitle {
+    justify-self: normal;
+  }
+
+  .rate {
+    grid-column: start / end;
+  }
+}
+
+@media screen and (max-width: 980px){
+  .reviewForm {
+    grid-template-columns: [start] 1fr [end];
+  }
+}
