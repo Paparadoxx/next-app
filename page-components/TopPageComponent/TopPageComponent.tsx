@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { Advantages, HhData, Htag, P, Product, Sort, Tag } from "../../components";
 import { TopLevelCategory } from "../../interfaces/page.interface";
 import { SortEnum } from "../../components/Sort/Sort.props";
-import { useReducer } from "react";
+import { useEffect, useReducer } from "react";
 import { sortReducer } from "./sort.reducer";
 
 
@@ -16,6 +16,10 @@ export const TopPageComponent = ({products, page, firstCategory}: TopPageCompone
     dispatchSort({type: sort});
   };
 
+  useEffect(()=> {
+    dispatchSort({type:'reset', initialState: products});
+  }, [products])
+
 	return (
 		<div className={styles.wrapper}>
       <div className={styles.title}>
@@ -24,7 +28,7 @@ export const TopPageComponent = ({products, page, firstCategory}: TopPageCompone
         <Sort sort={sort} setSort={setSort}/>
       </div>
       <div>
-        {products && sortedProducts.map(p => <Product product={p} key={p._id}/>)}
+        {sortedProducts && sortedProducts.map(p => <Product product={p} key={p._id}/>)}
       </div>
       <div className={styles.HhTitle}>
         <Htag tag='h2'>Вакансии - {page.category}</Htag>

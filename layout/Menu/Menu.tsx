@@ -82,8 +82,8 @@ export const Menu = (): JSX.Element => {
           </a>
         </Link>
 			))
-		)
-	}
+		);
+	};
 
 	return (
 		<div className={styles.menu}>
