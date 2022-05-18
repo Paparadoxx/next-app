@@ -18,7 +18,8 @@
   gap: 20px;
 }
 
-.textarea, .submit {
+.description,
+.submit {
   grid-column: start / end;
 }
 
