@@ -4,7 +4,7 @@ import cn from 'classnames';
 import StarIcon from './Star.svg';
 import { useEffect, useState, KeyboardEvent, forwardRef, ForwardedRef } from 'react';
 
-export const Rating = forwardRef(({isEditable = false, rating, setRating, ...props}: RatingProps, ref: ForwardedRef<HTMLDivElement>): JSX.Element => {
+export const Rating = forwardRef(({isEditable = false, error, rating, setRating, ...props}: RatingProps, ref: ForwardedRef<HTMLDivElement>): JSX.Element => {
 	const [ratingArray, setRatingArray] = useState<JSX.Element[]>(new Array(5).fill(<></>));
 
 	useEffect(() => {
@@ -40,22 +40,23 @@ export const Rating = forwardRef(({isEditable = false, rating, setRating, ...pro
 	};
 
 	const onClickHandler = (i: number) => {
-		if (!isEditable || !setRating){
+		if (!isEditable || !setRating) {
 			return;
 		}
 		setRating(i);
 	};
 
 	const handleSpace = (i: number, e:KeyboardEvent<SVGElement>) => {
-		if(e.code != 'space' || !setRating) {
+		if(e.code != 'Space' || !setRating) {
 			return;
 		}
 		setRating(i);
 	}
 
 	return (
-		<div {...props} ref={ref}>
-			{ratingArray.map((r,i )=> (<span key={i}>{r}</span>))}
+		<div {...props} ref={ref} className={styles.ratingWrapper}>
+			{ratingArray.map((r,i ) => (<span key={i}>{r}</span>))}
+			{error && <span className={styles.errorMessage}>{error.message}</span>}
 		</div>
 	);
 });

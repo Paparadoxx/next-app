@@ -11,7 +11,7 @@ import { IReviewForm } from "./ReviewForm.interface";
 
 
 export const ReviewForm = ({ productId, className, ...props}: ReviewFormProps): JSX.Element => {
-	const {register, control, handleSubmit } = useForm<IReviewForm>();
+	const {register, control, handleSubmit, formState: {errors} } = useForm<IReviewForm>();
 
 	const onSubmit = (data:IReviewForm) => {
 
@@ -20,20 +20,40 @@ export const ReviewForm = ({ productId, className, ...props}: ReviewFormProps): 
 	return (
 		<form onSubmit={handleSubmit(onSubmit)}>
 			<div className={cn(styles.reviewForm, className)} {...props}>
-				<Input {...register("name")} placeholder="Имя"/>
-				<Input {...register("title")} className={styles.inputTitle} placeholder="Заголовок отзыва"/>
+				<Input 
+					{...register("name", {required: {value: true, message: 'Введите имя'}})}
+					error={errors.name}
+					placeholder="Имя"
+				/>
+				<Input {...register("title", {required: {value: true, message: 'Введите заголовок'}})}
+					error={errors.title}
+					className={styles.inputTitle} 
+					placeholder="Заголовок отзыва"
+				/>
 				<div className={styles.rate}>
 					<span>Оценка:</span>
 					<Controller
 						control={control}
 						name='rating'
+						rules={{required: {value: true, message: 'Укажите рейтинг'}}}
 						render={({field}) => (
-							<Rating isEditable rating={field.value} setRating={field.onChange}/>
+							<Rating 
+								isEditable 
+								rating={field.value} 
+								setRating={field.onChange}
+								ref={field.ref}
+								error={errors.rating}
+							/>
 						)}
 					/>
 					
 				</div>
-				<Textarea {...register("description")} className={styles.description} placeholder="Текст отзыва"/>
+				<Textarea 
+					{...register("description", {required: {value: true, message: 'Введите отзыв'}})} 
+					error={errors.description}
+					className={styles.description} 
+					placeholder="Текст отзыва"
+					/>
 				<div className={styles.submit}>
 					<Button appearance='primary'>Отправить</Button>
 					<span className={styles.info}> * Перед публикацией отзыв пройдет модерацию и проверку</span>
