@@ -1,6 +1,6 @@
 module.exports = {
   images: {
-    domains: ['courses-top.ru', 'courses-top.ruhttp'],
+    domains: ['courses-top.ruhttp', 'courses-top.ru'],
   },
   webpack(config) {
     config.module.rules.push({
