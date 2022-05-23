@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: [start] auto 1fr auto [end];
   gap: 20px 30px;
+
   align-items: center;
 
   font-size: 14px;
@@ -29,29 +30,35 @@
 
 .success {
   position: relative;
-  background: var(--green-light);
+
   margin-top: 20px;
   padding: 20px;
+
   border-radius: 5px;
+  background: var(--green-light);
 }
 
 .error {
   position: relative;
-  background: var(--red-light);
+
   margin-top: 20px;
   padding: 20px;
+
   border-radius: 5px;
+  background: var(--red-light);
 }
 
 .successTitle {
-  font-weight: bold;
   margin-bottom: 10px;
+
+  font-weight: bold;
 }
 
 .close {
   position: absolute;
   top: 15px;
   right: 15px;
+
   cursor: pointer;
 }
 
@@ -59,7 +66,7 @@
   stroke: var(--red);
 }
 
-@media screen and (max-width: 1150px){
+@media screen and (max-width: 1150px) {
   .reviewForm {
     grid-template-columns: [start] auto auto [end];
   }
@@ -73,7 +80,7 @@
   }
 }
 
-@media screen and (max-width: 980px){
+@media screen and (max-width: 980px) {
   .reviewForm {
     grid-template-columns: [start] 1fr [end];
   }

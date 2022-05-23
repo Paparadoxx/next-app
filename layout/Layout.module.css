@@ -17,6 +17,8 @@
 
 .body {
   grid-area: body;
+
+  outline: none;
 }
 
 .sidebar {
@@ -27,6 +29,24 @@
   grid-area: footer;
 }
 
+.skipLink {
+  position: fixed;
+  top: 0;
+  left: 100px;
+
+  display: block;
+  overflow: hidden;
+
+  height: 0;
+
+  color: var(--white);
+  background: var(--primary);
+}
+
+.displayed {
+  height: auto;
+}
+
 @media (max-width: 767px) {
   .wrapper {
     grid-template-columns: minmax(320px, 1fr);
@@ -34,7 +54,7 @@
       "header"
       "body"
       "footer";
-      gap: 10px;
+    gap: 10px;
   }
 
   .body {
