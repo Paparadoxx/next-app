@@ -18,16 +18,16 @@ a {
 }
 
 :root {
-  --black: #3B434E;
+  --black: #69717B;
   --gray: #A4A4A4;
   --gray-light: #EBEBEB;
-  --gray-dark: #787D85;
+  --gray-dark: #6C7077;
   --white: white;
-  --primary: #7653FC;
+  --primary: #7351F5;
   --primary-hover: #603FE6;
   --red: #FC836D;
-  --red-light: #feb1a3;
-  --green: #1DC37E;
+  --red-light: #FEB1A3;
+  --green: #007B48;
   --green-light: #C8F8E4;
   --font-family: "Noto Sans KR", sans-serif;
 }
