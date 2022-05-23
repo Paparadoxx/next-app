@@ -8,14 +8,14 @@ export const Up = (): JSX.Element => {
 	const controls = useAnimation();
 	const y = useScrollY();
 
-	useEffect(()=>{
+	useEffect(() => {
 		controls.start({opacity: y / document.body.scrollHeight})
 	}, [y, controls]);
 
 	const scrollToTop = () => {
 		window.scrollTo({
 			top: 0,
-			behavior: 'smooth'
+			behavior: "smooth" 
 		});
 	};
 
