@@ -21,7 +21,7 @@ const scrollToReview = () => {
 	setIsReviewOpened(true);
 	reviewRef.current?.scrollIntoView({
 		behavior: 'smooth',
-		block: 'start'
+		block: 'center'
 	});
 	reviewRef.current?.focus();
 };
