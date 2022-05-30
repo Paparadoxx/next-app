@@ -1,3 +1,5 @@
+/* stylelint-disable selector-class-pattern */
+/* stylelint-disable declaration-block-no-redundant-longhand-properties */
 .wrapper {
   display: grid;
   grid-template-columns: auto 230px minmax(320px, 1200px) auto;
