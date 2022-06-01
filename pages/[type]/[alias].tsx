@@ -14,7 +14,7 @@ import Head from "next/head";
 function TopPage({firstCategory, page, products}: TopPageProps): JSX.Element {
   return (
     <>
-			<Head>
+			{page && products && <><Head>
 				<title>{page.metaTitle}</title>
 				<meta name="description" content={page.metaDescription}/>
 				<meta property="og:title" content={page.metaTitle}/>
@@ -26,7 +26,8 @@ function TopPage({firstCategory, page, products}: TopPageProps): JSX.Element {
 				page={page}
 				products={products}
 	 		/>
-		 </>
+			</>}
+		</>
   );
 };
 
@@ -38,12 +39,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
 		const {data: menu} = await axios.post<MenuItem[]>(API.topPage.find, {
 			firstCategory: m.id
 		 });
-		 paths = paths.concat(menu.flatMap(s => s.pages.map(p => `/${m.route}/${p.alias}`)));
+		 paths = paths?.concat(menu.flatMap(s => s.pages.map(p => `/${m.route}/${p.alias}`)));
 	}
 	
 	return {
 		paths,
-		fallback: true
+		fallback: false
 	}
 }
 

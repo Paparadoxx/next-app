@@ -7,7 +7,6 @@ import { Tag } from "../Tag/Tag";
 import { Button } from "../Button/Button";
 import { declentionOfNum, priceRu } from "../../helpers/helpers";
 import { Divider } from "../Divider/Divider";
-import Image from 'next/image';
 import { ForwardedRef, forwardRef, useRef, useState } from "react";
 import { Review } from "../Review/Review";
 import { ReviewForm } from "../ReviewForm/ReviewForm";
@@ -35,7 +34,7 @@ const variants = {
 	<div className={className} {...props} ref={ref}>	
 		<Card className={styles.product}>
 			<div className={styles.logo}>
-				<Image 
+				<img 
 					src={process.env.NEXT_PUBLIC_DOMAIN + product.image}
 					alt={product.title}
 					width={70}

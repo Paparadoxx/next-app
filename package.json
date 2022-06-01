@@ -5,6 +5,7 @@
     "prepare": "husky install",
     "dev": "next dev",
     "build": "next build",
+    "export": "next export",
     "start": "next start",
     "stylelint": "stylelint \"**/*.css\" --fix"
   },
