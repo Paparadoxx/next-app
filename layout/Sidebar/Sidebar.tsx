@@ -1,7 +1,7 @@
 import {SidebarProps} from "./Sidebar.props";
 import styles from './Sidebar.module.css';
 import { Menu } from "../Menu/Menu";
-import Logo from '../logo.svg';
+import Logo from '../Logo.svg';
 import cn from 'classnames';
 import { Search } from "../../components";
 
